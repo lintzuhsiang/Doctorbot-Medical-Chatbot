@@ -1,0 +1,14 @@
+django
+djangorestframework
+django-filter
+requests
+beautifulsoup4
+PyMySQL
+mysqlclient
+drfdocs
+django-cors-headers
+jieba
+keras
+pymongo
+progressbar2
+h5py
