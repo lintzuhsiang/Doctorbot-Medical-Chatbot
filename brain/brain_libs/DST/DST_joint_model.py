@@ -19,7 +19,7 @@ sys.path.pop()
 #setup_environ(settings)
 #os.environ['DJANGO_SETTINGS_MODULE'] = 'doctorbot.settings'
 
-DIR_NAME = '/home/a1995080130/DoctorBot/doctorbot/'
+DIR_NAME = '../../../../DoctorBot/doctorbot/'
 import sqlite3
 import json
 conn = sqlite3.connect(DIR_NAME + 'db.sqlite3')
@@ -154,17 +154,18 @@ def main():
     
     
     while True:
-
+        fb.execute('select MAX(ID) from fb_doctor_chatbot_fb_db')
+        vid = fb.fetchone()
+        #if(fb.execute('select MAX(ID) from fb_doctor_chatbot_fb_db') != vid):
         fb.execute('select * from fb_doctor_chatbot_fb_db where ID=(select MAX(ID) from fb_doctor_chatbot_fb_db) ')
         message = fb.fetchone()
         sentence = message[3]
-
         if os.path.exists("DM.json"):
             with open("DM.json", 'r') as f:
                 DM = json.load(f)
         slot_dictionary = {'disease': '', 'division': '', 'doctor': '', 'time': ''}
 
-        #sentence = input('U: ')
+        sentence = input('U: ')
         pattern = re.compile("[0-9]+\.[0-9]+\.[0-9]+")
         match = pattern.match(sentence)
         if match:

@@ -17,7 +17,6 @@ from django.conf.urls import url
 from django.contrib import admin
 from django.conf.urls import include
 from fb_doctor_chatbot.views import Doctor
-from fb_doctor_chatbot.views import hello_world
 
 
 urlpatterns = [
