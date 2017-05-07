@@ -27,7 +27,8 @@ def main():
         for slot, value in slot_dictionary.items():
             print(slot, ": ", value)
 
-        intent_index = LU.IntentPredict().get_intent(sentence)
+        intent = LU.IntentPredict().get_intent(sentence)
+        intent_index = intent.index(max(intent))
         intents = ['greeting', 'search_symptom', 'search_division', 'search_doctor', 'search_timetable', 'register']
         print('[ Intent ] ' + intents[intent_index])
 
@@ -37,20 +38,20 @@ def main():
                   slot_dictionary['disease'] +
                   "會有什麼症狀，以下為相關可能症狀：")
             for data in collection_disease.find({"disease_c": {"$regex": slot_dictionary['disease']}}):
-                print(", ".join(data['symptom']))
+               print(", ".join(data['symptom']))
         elif intent_index == 2:  # search_division
             print("好的，您想查詢" +
                   slot_dictionary['disease'] +
                   "是屬於哪一科，以下為相關科別：")
             for data in collection_disease.find({"disease_c": {"$regex": slot_dictionary['disease']}}):
-                print(", ".join(data['department']))
+               print(", ".join(data['department']))
         elif intent_index == 3:  # search_doctor
             print("好的，您想查詢" +
                   slot_dictionary['division'] + slot_dictionary['disease'] +
                   "有哪些醫生可以掛號，以下為醫生表列：")
             for data in collection_division.find({"$and": [{"disease": {"$regex": slot_dictionary['disease']}},
-                                                           {"department": {"$regex": slot_dictionary['division']}}]}):
-                print(data['department'] + " 醫師: " + ", ".join(data['doctor']))
+                                                          {"department": {"$regex": slot_dictionary['division']}}]}):
+               print(data['department'] + " 醫師: " + ", ".join(data['doctor']))
         elif intent_index == 4:  # search_timetable
             print("好的，您想查詢" + slot_dictionary['division'] +
                   slot_dictionary['disease'] + slot_dictionary['doctor'] + slot_dictionary['time'] + "的門診時間")

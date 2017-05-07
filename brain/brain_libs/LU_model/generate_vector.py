@@ -1,6 +1,6 @@
 import jieba
 import numpy as np
-jieba.load_userdict("doctorbot_dict.txt")
+jieba.load_userdict("../LU_model/doctorbot_dict.txt")
 import multiprocessing
 from collections import OrderedDict
 class generate_vector(object):

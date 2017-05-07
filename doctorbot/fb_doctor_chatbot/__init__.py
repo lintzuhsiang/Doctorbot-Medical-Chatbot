@@ -1,1 +1,1 @@
-from .views import Doctor
+# from .views import Doctor

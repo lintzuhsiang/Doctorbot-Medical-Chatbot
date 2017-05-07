@@ -9,19 +9,19 @@ import json
 from keras.models import load_model
 from keras.models import model_from_json
 
-if not os.path.exists("data"):
+if not os.path.exists("../LU_model/data"):
     os.makedirs("data")
 
-loaded_model = load_model('intent_model.h5')
+loaded_model = load_model('../LU_model/model/intent_model.h5')
 
-sentence_file = "data/training_sentence.txt"
-slot_file = "data/training_slot.txt"
-sentence_training_file = "data/sentence_training.txt"
-sentence_developing_file = "data/sentence_developing.txt"
-slot_training_file = "data/slot_training.txt"
-slot_developing_file = "data/slot_developing.txt"
+sentence_file = "../LU_model/data/training_sentence.txt"
+slot_file = "../LU_model/data/training_slot.txt"
+#sentence_training_file = "data/sentence_training.txt"
+#sentence_developing_file = "data/sentence_developing.txt"
+#slot_training_file = "data/slot_training.txt"
+#slot_developing_file = "data/slot_developing.txt"
 
-model_file = 'model/GRU_model_1.h5'
+model_file = '../LU_model/model/GRU_model_1.h5'
 
 
 class IntentPredict(object):
@@ -30,7 +30,7 @@ class IntentPredict(object):
         sentences, maxsize = gv.segment_words(sentence)
         # print("senteces size: {}".format(np.shape(sentences)))
 
-        with open('dict_one_hot_word.txt', 'r', encoding='utf-8') as f:
+        with open('../LU_model/dict_one_hot_word.txt', 'r', encoding='utf-8') as f:
             dict_one_hot_word = json.load(f)
 
         one_hot_words = gv.one_hot_encode(1467, sentences, maxsize, dict_one_hot_word)
@@ -38,13 +38,13 @@ class IntentPredict(object):
         one_hot_words = one_hot_words.reshape(-1, 15, 1468)
 
         # print('intent is {}'.format(loaded_model.predict_classes(one_hot_words)))
-        return loaded_model.predict_classes(one_hot_words)[0].item()
+        return loaded_model.predict(one_hot_words).tolist()[0]
 
 
 class SlotFilling(object):
     def __init__(self):
         # Prepare data
-        (self.sentence_train,
+        '''(self.sentence_train,
          self.slot_train,
          self.sentence_dev,
          self.slot_dev,
@@ -58,7 +58,9 @@ class SlotFilling(object):
             from_vocabulary_size=2000,
             to_vocabulary_size=2000,
             tokenizer=None)
-
+        '''
+        self.vocab_sentence = os.path.join("../LU_model/data", "vocab%d.sentence" % 2000)
+        self.vocab_slot = os.path.join("../LU_model/data", "vocab%d.slot" % 2000)
 
     def decode(self, sentence):
         # Dictionaries
