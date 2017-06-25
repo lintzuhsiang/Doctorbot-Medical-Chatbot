@@ -107,7 +107,7 @@ Testing data size (should come from real human)
 * Testing data: 250 sentences
 
 Performance on testing data (BLEU score, naturalness) 
-* BLEU: 0.0405
+* BLEU: 0.4073
 
 
 
