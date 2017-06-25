@@ -129,6 +129,10 @@ Slots：
 
 Rule Based Model 是將rule寫在Dialogue Policy裏面, 藉由歷史state和目前新輸入的semantic_frame來產生DM_frame作為下一步的指令
 
+### Performance of Rule-based DM
+
+![](https://i.imgur.com/aXgRlV9.png)
+
 ![](https://i.imgur.com/XARq0QR.png)
 
 RL Model 參考Deep Learning Flappy Bird [2]架構, 使用DQN演算法, 在double-ended queue 中存放state, action, reward, 累積到定量資料, 再中取出一個batch大小的資料來訓練
