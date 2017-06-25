@@ -1,8 +1,7 @@
 # Doctor Bot Github Page
 
 ## Final Presentation
-### Demo link
-### https://www.facebook.com/Seek-Doctor-392307634461738/
+### [Demo link](https://www.facebook.com/Seek-Doctor-392307634461738/)
 ### Overview
 ![](https://i.imgur.com/xNsWy31.png)
 
@@ -35,8 +34,11 @@ D：朱筱桑的門診時間為：
 5. 預約掛號: 
 U：我要預約眼科的門診
 D：
-* <font color='red'>Supported APIs</font>
-    * <font color='red'>影像辨識API </font>
+
+* Supported APIs
+    * 影像辨識API
+
+![](https://i.imgur.com/oVM5cck.png)
 
 ## Ontology 
 ### Data Sources (Using web crawler technology)
