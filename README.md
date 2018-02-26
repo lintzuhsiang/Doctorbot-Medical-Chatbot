@@ -1,7 +1,5 @@
 # Doctor Bot Github Page
 
-## Final Presentation
-### [Demo link](https://www.facebook.com/Seek-Doctor-392307634461738/)
 ### Overview
 ![](https://i.imgur.com/xNsWy31.png)
 
