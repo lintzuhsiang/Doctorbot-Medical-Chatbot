@@ -1,4 +1,19 @@
 # Doctor Bot Github Page
+## Team members
+
+林佳穎
+
+林子翔 
+
+蘇柏元 
+
+徐彥旻 
+
+Hubert Lin 
+
+林鑫彤 
+
+翁福德
 
 ### Overview
 ![](https://i.imgur.com/xNsWy31.png)
